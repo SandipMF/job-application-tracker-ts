@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+body {
+  background-color: aquamarine;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  font-family: "Ubuntu", sans-serif;
+}
+
+nav div {
+  display: flex;
+  list-style-type: none;
+  background-color: cadetblue;
+  color: white;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* -------Summary-------- */
+.summary-row {
+  border: 2px solid #000;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-weight: bold;
+  gap: 10px;
+}
+
+.indevidual-status {
+  border-right: 2px solid #000;
+  padding-right: 10px;
+}
+
+.hired {
+  color: darkgreen;
+}
+.rejected {
+  color: darkred;
+}
+/*  */
+.form-with-table {
+  display: flex;
+  /* width: 98%; */
+  justify-content: space-between;
+  /* margin: 20px; */
+  /* background-color: #282c34; */
+  gap: 20px;
+  padding: 20px;
+}
+/* --------Create form---------- */
+
+.form-section {
+  /* width: 30%; */
+  border: 1px solid black;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  height: 380px;
+  width: 350px;
+}
+
+.form-section h3 {
+  text-align: center;
+}
+
+.application-form {
+  width: 100%;
+  padding: 20px;
+  /* border: 1px solid #ccc;
+  border-radius: 8px; */
+  /* background-color: #282c34; */
+}
+
+.application-form div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+textarea {
+  width: 145px;
+}
+.application-form .div-footer-button-container {
+  justify-content: center;
+  /* background-color: #000; */
+  align-items: center;
+  padding-top: 20px;
+}
+.submitBtn {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  color: green;
+  font-weight: bold;
+  font-size: small;
+}
+
+/* ----------Application list------------ */
+
+.application-list-section {
+  flex: 1;
+  /* background-color: #282c34; */
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 8px;
+  /* padding-left: 20px; */
+}
+.application-list-section h3 {
+  text-align: center;
+  /* background-color: #282c34; */
+  padding: 10px;
+}
+.application-list-section div div {
+  justify-content: center;
+  /* align-items: center; */
+  display: flex;
+}
+
+.application-list-table {
+  width: 98%;
+  border: 1px solid #ccc;
+  justify-content: center;
+  border-collapse: collapse;
+  margin: 20px;
+}
+.application-list-table thead tr th {
+  border-right: 1px solid #ccc;
+  padding: 2px;
+}
+.application-list-table thead tr th:last-child {
+  border-right: none;
+}
+
+.application-list-table tr {
+  border-top: 1px solid #ccc;
+}
+
+.application-list-table tr td {
+  border-right: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+}
+
+.editBtn {
+  height: 30px;
+  width: 50px;
+  border-radius: 5px;
+  color: black;
+}
+
+.deleteBtn {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+  background-color: darkred;
+}
+
+/* --------EditForm------- */
+.edit-form {
+  /* display: flex; */
+  /* display: none; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.edit-form-section {
+  border: 1px solid black;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-top: 20px;
+}
+.edit-form h3 {
+  text-align: center;
+}
+
+.edit-content {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+}
+
+.updateBtn {
+  height: 30px;
+  width: 150px;
+  border-radius: 5px;
+  color: green;
+  font-weight: bold;
+  font-size: small;
+}
+
+.cancelBtn {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+  background-color: darkred;
+}
+
+@media screen and (max-width: 600px) {
+  .summary-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 200px;
+  }
+
+  .indevidual-status {
+    border-right: none;
+    padding-right: 0;
+  }
+  .form-with-table {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-section {
+    /* width: 400px; */
+  }
+  .application-list-section {
+    /* width: 500px; */
+    margin: 20;
+    padding: 20;
+    flex: 2;
+  }
+}
