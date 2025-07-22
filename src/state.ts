@@ -1,5 +1,6 @@
 import type { JobApplication } from "./types";
 
+// set the type for state object
 type State = {
   jobApplications: JobApplication[];
   listeners: ((apps: JobApplication[]) => void)[];

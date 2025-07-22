@@ -6,6 +6,7 @@ import { editJobApplicationForm } from "./JobApplicationEdit";
 export function jobApplicationListTable(): HTMLElement {
   const div = document.createElement("div");
 
+  //Content for table header   
   div.innerHTML = `
         <h3>Job Application Table</h3>
         <div>
@@ -28,6 +29,7 @@ export function jobApplicationListTable(): HTMLElement {
     `;
 
   const tbody = div.querySelector("tbody")!;
+  //Handle dynamic data based on state object changes by subscribe method
   subscribe((applicationsDataArr: JobApplication[]) => {
     tbody.innerHTML = applicationsDataArr
       .map((data, index) => {
@@ -46,10 +48,12 @@ export function jobApplicationListTable(): HTMLElement {
       .join("");
   });
 
+  //Handle button clicked for delete and edit button
   div.addEventListener("click", (event) => {
     const target = event.target as HTMLElement;
     const index = Number(target.dataset.index);
 
+    // For Delete button
     if (target.classList.contains("deleteBtn")) {
       if (
         confirm(
@@ -63,6 +67,7 @@ export function jobApplicationListTable(): HTMLElement {
       }
     }
 
+    // For Edit button
     if (target.classList.contains("editBtn")) {
       //Check if any existing form in Dome then remove
       const existingEditForm = document.querySelector("#editFormDiv");
@@ -70,6 +75,7 @@ export function jobApplicationListTable(): HTMLElement {
         existingEditForm.remove();
       }
 
+      //Push EditJobApplicationForm on main app's div
       const editForm = editJobApplicationForm(
         appState.jobApplications[index],
         index

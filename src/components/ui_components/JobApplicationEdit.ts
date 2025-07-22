@@ -66,6 +66,7 @@ export function editJobApplicationForm(
   `;
   div.style.display = "flex";
 
+  //Create ref for needed elements
   const editForm = div.querySelector("#editApplicationForm") as HTMLFormElement;
   const jobTypeSelect = div.querySelector("#edit_jobType") as HTMLSelectElement;
   const locationDiv = div.querySelector("#edit_locationDiv") as HTMLDivElement;
@@ -97,9 +98,11 @@ export function editJobApplicationForm(
   });
   jobTypeSelect.dispatchEvent(new Event("change"));
 
+  //Handle form submit
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    // Setup error messages
     let errors: string[] = [];
 
     if (!company.value.trim()) errors.push("Company is required.");
@@ -117,6 +120,7 @@ export function editJobApplicationForm(
       return;
     }
 
+    // Proceed to update application data
     const editedApplicationForm: JobApplication = {
       ...editApplicationData,
       company: company.value.trim(),
@@ -137,6 +141,7 @@ export function editJobApplicationForm(
     div.style.display = "none";
   });
 
+  //Handle cancel button
   const cancelBtn = editForm.querySelector(
     "#cancelEditForm"
   ) as HTMLButtonElement;

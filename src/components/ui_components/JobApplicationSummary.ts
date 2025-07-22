@@ -6,7 +6,9 @@ export function jobApplicationSummary(): HTMLElement {
   summary.className = "summary-row";
   summary.id = "jobSummary";
 
+  //set the inner content of summary with dynamic value
   function updateSummary(applications: JobApplication[]) {
+    // calculate the count of individual status with total
     const totalCount = applications.length;
     const appliedCount = applications.filter(
       (data) => data.status === "Applied"
@@ -30,6 +32,7 @@ export function jobApplicationSummary(): HTMLElement {
     `;
   }
 
+  //This will update the count in real time based on state object changed
   subscribe(updateSummary);
 
   return summary;

@@ -64,25 +64,25 @@ export function jobApplicationCreateForm(): HTMLElement {
   ) as HTMLFormElement;
   const jobTypeSelect = div.querySelector("#jobType") as HTMLSelectElement;
   const locationDiv = div.querySelector("#locationDiv") as HTMLDivElement;
-  const locationField = div.querySelector("#location") as HTMLInputElement;
+//   const locationField = div.querySelector("#location") as HTMLInputElement;
 
   jobTypeSelect.addEventListener("change", () => {
     const jobTypeSelectedValue = jobTypeSelect.value;
     if (jobTypeSelectedValue === "Onsite") {
       locationDiv.style.display = "flex";
-      locationField.required = true;
     } else {
       locationDiv.style.display = "none";
-      locationField.required = false;
     }
   });
 
   // Initial state for location field
   jobTypeSelect.dispatchEvent(new Event("change"));
-
+  
+  //Handle form submit
   applicationForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
+    
+    //Create ref of each field
     const company = (
       applicationForm.querySelector("#company") as HTMLInputElement
     ).value.trim();
@@ -104,6 +104,7 @@ export function jobApplicationCreateForm(): HTMLElement {
       applicationForm.querySelector("#note") as HTMLTextAreaElement
     ).value.trim();
 
+    //Setup error messages
     let errors: string[] = [];
 
     if (!company) errors.push("Company is required.");
@@ -121,6 +122,7 @@ export function jobApplicationCreateForm(): HTMLElement {
       return;
     }
 
+    //If all ok proceed to add new job application
     const newApplication: JobApplication = {
       id: crypto.randomUUID(),
       company,
